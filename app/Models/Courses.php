@@ -19,4 +19,7 @@ class Courses extends Model
         'user_id',
         'status',
     ];
+    // use HasFactory;
+    // protected $table = 'courses';
+    // protected $guarded = [];
 }

@@ -38,29 +38,31 @@
             </script>
         @endif
     </div>
-    <div class="card-body">
-        <div class="container mt-3">
-            <div class="row">
-                @forelse ($guru as $val)
-                    <div class="col-auto mb-3">
-                        <div class="card" style="width: 18rem;">
-                            <div class="card-body">
-                                <h5 class="card-title">{{ $val->name }}</h5>
-                                <h6 class="card-subtitle mb-2 text-muted">{{ $val->nip }}</h6>
-                                <p class="card-text">{{ $val->alamat }}</p>
-                                <a href="{{ route('kursuslistguru', ['id' => $val->id]) }}" class="card-link">List
-                                    Kursus</a>
+    <div class="card-body ">
+        <div class="container mt-3 ">
+            <div class="col-12">
+                <div class="row">
+                    @forelse ($guru as $val)
+                        <div class="col-auto mb-3 ">
+                            <div class="card" style="width: 18rem;">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ $val->name }}</h5>
+                                    <h6 class="card-subtitle mb-2 text-muted">{{ $val->nip }}</h6>
+                                    <p class="card-text">{{ $val->alamat }}</p>
+                                    <a href="{{ route('kursuslistguru', ['id' => $val->id]) }}" class="card-link">List
+                                        Materi Kursus</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                @empty
-                    <div class="d-flex justify-content-center mt-5">
+                    @empty
+                        <div class="d-flex justify-content-center mt-5">
 
-                        <div class="text-center">
-                            <h5>Tidak ada data guru</h5>
+                            <div class="text-center">
+                                <h5>Tidak ada data guru</h5>
+                            </div>
                         </div>
-                    </div>
-                @endforelse
+                    @endforelse
+                </div>
             </div>
         </div>
 

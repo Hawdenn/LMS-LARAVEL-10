@@ -137,17 +137,37 @@
                         <input type="password" class="form-control" id="exampleInputEmail3" placeholder="Password"
                             name="password" required>
                     </div>
-
                     <div class="form-group">
-                        <label for="alamat" class="label-input100">Alamat</label>
-                        <textarea class="form-control" id="alamat" name="alamat" rows="3" placeholder="Masukkan Alamat"></textarea>
+                        <label for="alamat">Alamat</label>
+                        <input type="text" class="form-control" id="alamat" placeholder="Alamat" name="alamat"
+                            required>
+                    </div>
+                    <div class="form-group">
+                        <label for="18">Umur</label>
+                        <input type="text" class="form-control" id="umur" placeholder="Umur" name="umur"
+                            required>
                     </div>
 
                     <div class="form-group">
-                        <label for="umur" class="label-input100">Umur</label>
-                        <input class="form-control" type="number" id="umur" name="umur"
-                            placeholder="Masukkan Umur" min="0"name="umur" required>
+                        <label for="jenis_kelamin">Jenis Kelamin</label>
+                        <select class="form-control" id="jenis_kelamin" name="jenis_kelamin" required>
+                            <option value="Laki-laki">Laki-laki</option>
+                            <option value="Perempuan">Perempuan</option>
+                        </select>
                     </div>
+                    <div class="form-group">
+                        <label for="agama">Agama</label>
+                        <select class="form-control" id="agama" name="agama" required>
+                            <option value="Islam">Islam</option>
+                            <option value="Kristen">Kristen</option>
+                            <option value="Hindu">Hindu</option>
+                            <option value="Buddha">Buddha</option>
+                            <option value="Katolik">Katolik</option>
+                            <!-- Add more options as needed -->
+                        </select>
+                    </div>
+
+
                     <div class="mb-3">
                         <label for="gambar" class="form-label">Gambar</label>
                         <input class="form-control" type="file" id="gambar" name="gambar">

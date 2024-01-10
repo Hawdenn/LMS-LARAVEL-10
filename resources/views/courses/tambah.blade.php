@@ -33,7 +33,7 @@
                     </div>
                     <div class="form-group">
                         <label for="angkatan">Photo</label>
-                        <input type="file" class="form-control" id="photo" name="photo" required>
+                        <input type="file" class="form-control" id="photo" name="photo">
                     </div>
                     <div class="form-group">
                         <label for="jurusan">File Pdf</label>

@@ -145,7 +145,9 @@
     <div class="col-lg-12 grid-margin stretch-card mt-3">
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title"><p>SETTING USER</p></h4>
+                <h4 class="card-title">
+                    <p>SETTING USER</p>
+                </h4>
                 <div class="table-responsive">
                     <table class="table table-striped">
                         <thead>
@@ -191,19 +193,17 @@
                                         <form onsubmit="return confirm('Yakin ingin Mengangkat USER Menjadi ADMIN ?')"
                                             class="d-inline" action="/uprole/{{ $item->id }}" method="POST">
                                             @csrf
-                                            <input type="submit"
-                                                class="btn btn-warning me-2"
-                                                value="UP">
+                                            <input type="submit" class="btn btn-warning me-2" value="UP">
                                         </form>
-                                        &nbsp;<a href="/edituc/{{ $item->id }}"
-                                            <!-- Primary Edit Button -->
-                                            <button type="submit" class="btn btn-primary me-2">Edit</button>
-                                            <form onsubmit="return confirmDelete(event)" class="d-inline"
-                                                action="/hapusuc/{{ $item->id }}" method="POST">
-                                                @csrf
-                                                <!-- Danger Delete Button -->
-                                                <button type="submit" class="btn btn-danger me-2">Del</button>
-                                            </form>
+                                        &nbsp;
+                                        {{-- <a href="/edituc/{{ $item->id }}">
+                                            <button type="submit" class="btn btn-primary me-2">Edit</button></a> --}}
+                                        <form onsubmit="return confirmDelete(event)" class="d-inline"
+                                            action="/hapusuc/{{ $item->id }}" method="POST">
+                                            @csrf
+                                            <!-- Danger Delete Button -->
+                                            <button type="submit" class="btn btn-danger me-2">Del</button>
+                                        </form>
                                 @endif
                                 </td>
                             </tbody>

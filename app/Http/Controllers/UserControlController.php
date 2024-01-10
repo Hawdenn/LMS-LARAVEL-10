@@ -7,25 +7,25 @@ use App\Models\DataMahasiswa;
 use App\Models\Guru;
 use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Str;
 
 class UserControlController extends Controller
 {
-    function index()
+    public function index()
     {
         $data = User::all();
         return view('user_control.index', ['uc' => $data]);
     }
 
-    function tambah()
+    public function tambah()
     {
         $siswa = DataMahasiswa::all();
         $guru = Guru::all();
-        return view('user_control.tambah',compact('siswa','guru'));
+        return view('user_control.tambah', compact('siswa', 'guru'));
     }
-    function create(Request $request)
+    public function create(Request $request)
     {
         $str = Str::random(100);
         $gambar = '';
@@ -44,7 +44,6 @@ class UserControlController extends Controller
             'role.required' => 'Role Wajib Di isi',
         ]);
 
-
         if ($request->hasFile('gambar')) {
 
             $request->validate(['gambar' => 'mimes:jpeg,jpg,png,gif|image|file|max:1024']);
@@ -57,12 +56,12 @@ class UserControlController extends Controller
         } else {
             $gambar = "user.jpeg";
         }
-        if ($request->role =='user' && $request->siswa =='') {
+        if ($request->role == 'user' && $request->siswa == '') {
             Session::flash('error', 'User blom dipilih.');
 
             return back();
         }
-        if ($request->role =='guru' && $request->guru =='') {
+        if ($request->role == 'guru' && $request->guru == '') {
             Session::flash('error', 'Guru blom dipilih.');
 
             return back();
@@ -71,6 +70,10 @@ class UserControlController extends Controller
             'fullname' => $request->fullname,
             'email' => $request->email,
             'password' => $request->password,
+            'alamat' => $request->alamat,
+            'umur' => $request->umur,
+            'jenis_kelamin' => $request->jenis_kelamin,
+            'agama' => $request->agama,
             'verify_key' => $str,
             'gambar' => $gambar,
             'role' => $request->role,
@@ -86,19 +89,19 @@ class UserControlController extends Controller
             'url' => 'http://' . request()->getHttpHost() . "/" . "verify/" . $accounts->verify_key,
         ];
 
-        // Mail::to($request->email)->send(new AuthMail($details));
+        Mail::to($request->email)->send(new AuthMail($details));
 
         Session::flash('success', 'User berhasil ditambahkan , Harap verifikasi akun sebelum di gunakan.');
 
         return redirect('/usercontrol');
     }
 
-    function edit($id)
+    public function edit($id)
     {
         $data = User::where('id', $id)->get();
         return view('user_control.edit', ['uc' => $data]);
     }
-    function change(Request $request)
+    public function change(Request $request)
     {
         $request->validate([
             'gambar' => 'image|file|max:1024',
@@ -110,8 +113,6 @@ class UserControlController extends Controller
             'fullname.required' => 'Nama Wajib Di isi',
             'fullname.min' => 'Bidang nama minimal harus 4 karakter.',
         ]);
-
-
 
         $user = User::find($request->id);
 
@@ -131,7 +132,7 @@ class UserControlController extends Controller
 
         return redirect('/usercontrol');
     }
-    function hapus(Request $request)
+    public function hapus(Request $request)
     {
         User::where('id', $request->id)->delete();
 

@@ -26,7 +26,7 @@ class KursusController extends Controller
                     }
                 }]
             ])
-            ->paginate(1);
+            ->paginate(6);
 
 
         // dd($count);

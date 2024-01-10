@@ -61,6 +61,7 @@
                         <th>Photo</th>
                         <th>File</th>
                         <th>Pembuat</th>
+                        <th>Aksi</th>
                     </tr>
                 </tfoot>
 
@@ -74,9 +75,9 @@
                             <td>{{ $item->file }}</td>
                             <td>{{ $item->pembuat }}</td>
 
-                            <td><a href="/damaedit/{{ $item->id }}"class="btn btn-primary me-2">Edit</a>
+                            <td><a href="/editcourses/{{ $item->id }}"class="btn btn-primary me-2">Edit</a>
                                 |
-                                <form onsubmit="return confirmHapus(event)" action="/damahapus/{{ $item->id }}"
+                                <form onsubmit="return confirmHapus(event)" action="/courseshapus/{{ $item->id }}"
                                     method="post" class="d-inline">
                                     @csrf
                                     <button type="submit" class="btn btn-danger me-2">Hapus</button>

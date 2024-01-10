@@ -14,7 +14,7 @@
                         </ul>
                     </div>
                 @endif
-                <form class="forms-sample" method="POST" action="/tambahdama" enctype="multipart/form-data">
+                <form class="forms-sample" method="POST" action="/tambahdataguru" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
                         <label for="nama">Name</label>
@@ -35,11 +35,6 @@
                         <label for="angkatan">Alamat</label>
                         <textarea class="form-control" name="alamat" id="alamat" cols="30" rows="10"></textarea>
 
-                    </div>
-                    <div class="form-group">
-                        <label for="jurusan">Jurusan</label>
-                        <input type="text" class="form-control" id="jurusan" placeholder="Teknik Informatika"
-                            name="jurusan" required>
                     </div>
                     <button type="submit" class="btn btn-primary me-2">Tambah</button>
                     <a href="/datamahasiswa" class="btn btn-light">Kembali</a>
